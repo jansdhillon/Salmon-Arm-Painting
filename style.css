@@ -1,11 +1,14 @@
 body {
     background-color: #FFFFFF;
     color: #000000;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Krungthep";
     font-size: 20px;
 }
 
 h1 {
     text-align: center;
+    color: #131d5a;
+    border: 3px solid #131d5a;
+    background-color: #FFFFFF;
+    padding: 0;
 }
-
