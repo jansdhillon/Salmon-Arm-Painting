@@ -8,7 +8,25 @@ body {
 h1 {
     text-align: center;
     color: #131d5a;
-    border: 3px solid #131d5a;
     background-color: #FFFFFF;
-    padding: 0;
+    padding-bottom: 0;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav {
+    padding-top: 0;
+    display: inline;
+    background-color: #FFFFFF;
+    color: #131d5a;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .section {
+    padding: 5px;
+  }
