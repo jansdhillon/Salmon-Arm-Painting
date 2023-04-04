@@ -8,7 +8,7 @@ type AboutCardProps = {
 
 const AboutCard: React.FC<AboutCardProps> = ({title, image, description}) => {
     return (
-        <div className="container mx-auto px-4 py-4 flex flex-col justify-center items-center align-baseline">
+        <div className="container mx-auto px-4 py-4 flex flex-col justify-center items-center align-baseline animate-fadeIn">
             <h2 className="text-xl font-bold mb-4">{title}</h2>
             <div className="max-w-sm rounded overflow-hidden shadow-lg">
                 <img className="w-full" src={image}/>

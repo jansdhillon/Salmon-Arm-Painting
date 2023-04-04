@@ -8,15 +8,15 @@ import Home from "./Home";
 function App() {
 
   return (
-    <div className="bg-gradient-to-br from-purple-600 to-indigo-900 text-white h-max font-roboto font-normal">
+    <div className="bg-gradient-to-br from-purple-600 to-indigo-900 text-white min-h-screen font-roboto">
       <NavBar logo={sapLogo} />
       <Home logo={sapLogo} />
       <About/>
       <Contact />
-      <Footer title="Salmon Arm Painting" />
+      <Footer />
     </div>
   )
 }
 
-export default App
+export default App;
 

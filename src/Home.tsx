@@ -6,7 +6,7 @@ type HomeProps = {
 
 const Home: React.FC<HomeProps> = ({logo}) => {
     return (
-    <div id="home" className="h-screen flex flex-col justify-center items-center">
+    <div id="home" className="h-screen flex flex-col justify-center items-center animate-fadeIn">
         <img src={logo} alt="SAP Logo" width="300px" height="300px"/>
         <h1 className="text-4xl md:text-6xl font-bold mb-4">Salmon Arm Painting</h1>
         <p className="text-xl md:text-2xl mb-8">Best Painting in the Okanagan</p>
