@@ -1,45 +1,42 @@
-import sapLogo from "./assets/saplogov2.png"
+import sapLogo from "./assets/saplogov3.png";
+import {useLayoutEffect} from "react";
+import AOS from "aos";
+import lake from "./assets/lake.jpg";
+import house from "./assets/house.jpg";
+import paint from "./assets/paint.jpg";
+import ContactForm from "./ContactForm";
+import Footer from "./Footer";
+import AboutCard from "./AboutCard";
+import NavBar from "./NavBar";
+import Home from "./Home";
 
 function App() {
 
+  useLayoutEffect(() => {
+    AOS.init({
+      duration: 200,
+    });
+  }, []);
+
   return (
-    <div className=" text-white font-sans bg-blue-800">
-      {/*Header*/}
-      <nav className="bg-blue-900 py-4">
-        <div className="container mx-auto px-4 flex justify-between align-middle">
-          <div className="flex flex-row justify-start">
-          <img src={sapLogo} alt="SAP Logo" width="50px" height="50px" className="mr-1"/>
-          <a href="/" className="text-3xl font-bold ml-0">SAP</a>
-          </div>
-          <div className="flex">
-            <a href="/signup" className="text-l font-bold mr-4">About</a>
-            <a href="/signup" className="text-l font-bold mr-4">Contact</a>
-          </div>
-        </div>
-      </nav>
-      {/*Hero*/}
-      <div className="h-screen flex flex-col justify-center items-center">
-        <img src={sapLogo} alt="SAP Logo" width="300px" height="300px"/>
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Salmon Arm Painting</h1>
-        <p className="text-xl md:text-2xl mb-8">Best Painting in the Okanagan</p>
-        <a href="#cta" className="px-8 py-3 bg-blue-700 hover:bg-blue-800 rounded text-xl font-semibold">Learn More</a>
+    <div className="bg-gradient-to-br from-purple-600 to-indigo-900 text-white h-max font-roboto font-normal">
+      <NavBar logo={sapLogo} />
+      <Home logo={sapLogo} />
+      <div id="about" className=" flex  max-h-30 max-w-50 py-60 mb-60">
+        <AboutCard title="Quality Service" image={paint} description="We offer exceptional and stunning house painting services to clients across the Okanagan."/>
+        <AboutCard title="Great Pricing" image={house} description="Beautiful paint jobs don't have to cost a fortune! We help you achieve your dream home without breaking the bank."/>
+        <AboutCard title="Locally Owned" image={lake} description="We are a local company based in Salmon Arm, BC. We are proud to serve the Okanagan Valley and surrounding areas."/>
       </div>
-      {/*Call to Action*/}
-      <div id="cta" className="bg-blue-900 py-16">
+      <div id="contact" className="bg-violet-900 py-16">
         <div className="container flex-auto flex-col mx-auto px-4 justify-center align-center text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Want to join our team?</h2>
-          <p className="text-xl md:text-2xl mb-8">Get in touch with us</p>
-          <a href="/signup" className="px-8 py-3 bg-white text-blue-900 hover:bg-gray-200 rounded text-xl font-semibold">CONTACT</a>
+          <h2 className="text-3xl font-bold mb-4">Get in touch with us!</h2>
+          <ContactForm />
         </div>
       </div>
-      {/*Footer*/}
-      <div className="bg-sapcolor py-12">
-        <div class="container mx-auto px-4 text-center">
-        <p class="text-xl">&copy; Salmon Arm Painting 2023</p>
-        </div>
-      </div>
+      <Footer title="Salmon Arm Painting" />
     </div>
   )
 }
 
 export default App
+
