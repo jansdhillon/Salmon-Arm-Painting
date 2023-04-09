@@ -1,8 +1,10 @@
 import React, {useState, FormEvent} from 'react';
+import axios from "axios";
 
 type ContactInfo = {
     name: string;
     email: string;
+    phone: string;
     message: string;
   }
   
@@ -10,6 +12,7 @@ type ContactInfo = {
     const [contactInfo, setContactInfo] = useState<ContactInfo>({
       name: '',
       email: '',
+      phone: '',
       message: '',
     });
 
@@ -17,9 +20,17 @@ type ContactInfo = {
     setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log('Contact information submitted:', contactInfo);
+  
+    try {
+      const response = await axios.post('http://localhost:3000/save-contact', contactInfo);
+      console.log(response.data);
+      
+    } catch (error) {
+      console.error('Error saving contact information:', error);
+    }
   };
 
   return (
@@ -49,6 +60,20 @@ type ContactInfo = {
             type="email"
             required
             value={contactInfo.email}
+            onChange={handleChange}
+            className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone" className="text-sm font-medium">
+            Phone
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            value={contactInfo.phone}
             onChange={handleChange}
             className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50"
           />

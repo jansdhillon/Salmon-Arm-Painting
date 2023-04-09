@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import AboutCard from "./AboutCard";
 import lake from "./assets/lake.jpg";
 import house from "./assets/house.jpg";
 import paint from "./assets/paint.jpg";
+
 
 const About: React.FC = () => {
 
