@@ -25,7 +25,7 @@ type ContactInfo = {
     console.log('Contact information submitted:', contactInfo);
   
     try {
-      const response = await axios.post('http://localhost:8000/save-contact', contactInfo);
+      const response = await axios.post('/api/save-contact', contactInfo);
       console.log(response.data);
       
     } catch (error) {
