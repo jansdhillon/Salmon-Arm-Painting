@@ -119,16 +119,11 @@ const ContactForm: React.FC = () => {
             rows={4}
           ></textarea>
         </div>
-        {/* <button
-          type="submit"
-          className="w-full py-2 px-4 bg-gradient-to-b from-violet-400 to-violet-600 text-white rounded text-xl font-semibold hover:bg-gradient-to-br hover:from-violet-600 hover:to-violet-400 "
-        >
-          Submit
-        </button> */}
+        {/*from MUI*/}
         <Button
           variant="outlined"
           onClick={handleClickOpen}
-          className="w-full py-2 px-2 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800 "
+          className="w-full py-2 px-2 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800 border-purple-900 hover:border-purple-900"
         >
           Submit
         </Button>

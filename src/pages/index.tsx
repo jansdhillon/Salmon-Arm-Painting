@@ -9,7 +9,7 @@ import React from "react";
 export default function App() {
 
   return (
-    <main className="bg-gradient-to-b from-purple-200 to-purple-400 min-h-screen font-roboto">
+    <main className="bg-gradient-to-br from-purple-600 to-indigo-900 text-white min-h-screen font-roboto">
       <Head>
       <title>Salmon Arm Painting</title>
       <link rel="icon" href="/saplogov3.png" />
