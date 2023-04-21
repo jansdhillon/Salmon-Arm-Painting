@@ -1,4 +1,5 @@
 
+import React from "react";
 import AboutCard from "./AboutCard";
 
 const About: React.FC = () => {
