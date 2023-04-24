@@ -9,8 +9,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/pages/components/ui/alert-dialog"
-import { Button } from "@/pages/components/ui/button"
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 
 type ContactInfo = {
   name: string;
@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
         </div>
         <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
           <AlertDialogTrigger asChild>
-            <Button type="button" onClick={handleOpen} className="px-8 py-3 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800">Submit</Button>
+            <Button variant="outline" type="button" onClick={handleOpen} className="px-8 py-3 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800">Submit</Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
