@@ -1,10 +1,16 @@
 import React, { useState, FormEvent } from "react";
 import axios from "axios";
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/pages/components/ui/alert-dialog"
+import { Button } from "@/pages/components/ui/button"
 
 type ContactInfo = {
   name: string;
@@ -21,17 +27,27 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const [showDialog, setShowDialog] = useState(false);
+
+  const handleOpen = () => {
+    setShowDialog(true);
+  };
+
+  const handleClose = () => {
+    setShowDialog(false);
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
   };
 
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    handleClose();
     console.log("Contact information submitted:", contactInfo);
-
+  
     try {
       const response = await axios.post("/api/save-contact", contactInfo);
       console.log(response.data);
@@ -39,6 +55,8 @@ const ContactForm: React.FC = () => {
     } catch (error) {
       console.error("Error saving contact information:", error);
     }
+
+    handleClose();
   };
 
   const resetForm = () => {
@@ -50,15 +68,7 @@ const ContactForm: React.FC = () => {
     });
   };
 
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div className="mx-auto max-w-md">
@@ -119,29 +129,20 @@ const ContactForm: React.FC = () => {
             rows={4}
           ></textarea>
         </div>
-        {/*from MUI*/}
-        <Button
-          variant="outlined"
-          onClick={handleClickOpen}
-          className="w-full py-2 px-2 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800 border-purple-900 hover:border-purple-900"
-        >
-          Submit
-        </Button>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">{"Submit Form?"}</DialogTitle>
-          <DialogContent></DialogContent>
-          <DialogActions>
-            <Button onClick={handleSubmit} autoFocus type="submit">
-              Yes
-            </Button>
-            <Button onClick={handleClose}>No</Button>
-          </DialogActions>
-        </Dialog>
+        <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
+          <AlertDialogTrigger asChild>
+            <Button type="button" onClick={handleOpen} className="px-8 py-3 bg-gradient-to-b from-violet-300 to-violet-700 text-white rounded text-xl font-semibold hover:from-violet-400 hover:to-violet-200 hover:text-violet-800">Submit</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Submit info?</AlertDialogTitle>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={handleClose}>No</AlertDialogCancel>
+              <AlertDialogAction onClick={handleSubmit} className="bg-purple-900 hover:bg-violet-900">Yes</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </form>
     </div>
   );

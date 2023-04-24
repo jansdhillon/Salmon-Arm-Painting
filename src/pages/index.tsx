@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Head from "next/head";
 import React from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function App() {
 
