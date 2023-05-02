@@ -71,8 +71,6 @@ const credentials = {
             console.error('Error submitting contact info:', err);
             res.status(500).send('Error submitting contact info');
         }
-    } else {
-        res.status(405).send('Method not allowed');
     }
   };
 
